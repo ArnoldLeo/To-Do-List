@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do-List</title>
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span style="color:tomato;">MY</span> TO-DO-LIST</h1>
+            <form action="">
+            <input type="text" id="note-title" placeholder="Title">
+            <textarea name="" id="note-text" placeholder="Description" ></textarea>
+            <button id="add-btn">Add task</button>
+        </form>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <h2 style="margin-top: 10px;">Your Tasks</span></h2>
+            <hr>
+            <div id="notes" class="note">
+                <div  class="notes">
+                    <!-- <p class="note-counter">Task 1</p>
+                    <h3 class="note-title">Hello World!</h3>
+                    <p class="note-text">Some random text...</p>
+                    <button class="note-btn">Remove</button>
+                    <button class="note-btn edit-btn">Edit</button> -->
+                </div>
+            </div>
+            <button class="note-btn" id="rst-btn" onclick="reset();">Reset All Tasks!!</button>
+        </div>
+    </section>
+    <!-- <script src="https://kit.fontawesome.com/1935d064dd.js" crossorigin="anonymous"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>
