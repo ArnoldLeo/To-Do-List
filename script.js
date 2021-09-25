@@ -56,56 +56,62 @@ function showNotes() {
 }
 
 //Function to Delete task
-function deleteNote(index){
-    let confirmDel=confirm("Are you removing this task?");
+function deleteNote(index) {
+    let confirmDel = confirm("Are you removing this task?");
 
-    if(confirmDel==true){
-        let notes=localStorage.getItem("notes");
-        if(notes==null) {
+    if (confirmDel == true) {
+        let notes = localStorage.getItem("notes");
+        if (notes == null) {
             notesObj = [];
         }
         else {
             notesObj = JSON.parse(notes);
         }
-
-        notesObj.splice(index,1);
-        localStorage.setItem("notes",JSON.stringify(notesObj));
+        notesObj.splice(index, 1);
+        localStorage.setItem("notes", JSON.stringify(notesObj));
         showNotes();
     }
 }
 
 //Function to edit the task
-function editNote(index){
-    let notes=localStorage.getItem("notes");
-    if(addTitle.value!==""||addTxt.value!==""){
+function editNote(index) {
+    let notes = localStorage.getItem("notes");
+    //console.log(notes);
+    if (addTitle.value !== "" || addTxt.value !== "") {
         return alert("Please clear the form before editing a task");
     }
-    if(notes==null){
+    if (notes == null) {
         notesObj = [];
     }
     else {
-        notesObj = JSON.parse(notes);
+        notesObj = JSON.parse(notes);       
     }
     //console.log(notesObj);
-    notesObj.findIndex((element,index)=>{
-        addTitle.value=element.title;
-        addTxt.value=element.text;
-    })
-    notesObj.splice(index,1);
-    localStorage.setItem("notes",JSON.stringify(notesObj)); 
+    let head=notesObj[index].title;
+    // let tail=notesObj[index].text;
+    notesObj.findIndex((element) => {
+        // console.log(element);
+        if(element.title==head){
+         addTitle.value = element.title;
+         addTxt.value = element.text;
+        }
+     })
+    notesObj.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
 }
 
 showNotes();
-function reset(){
-   localStorage.clear();
-   let notes=localStorage.getItem("notes");
-   if(notes==null) {
-       notesObj = [];
-   }
-   else {
-       notesObj = JSON.parse(notes);
-   }
-   alert("All files Cleared!!");
-   showNotes();
+function reset() {
+    if (confirm("All files Cleared!!") === true) {
+        localStorage.clear();
+        let notes = localStorage.getItem("notes");
+        if (notes == null) {
+            notesObj = [];
+        }
+        else {
+            notesObj = JSON.parse(notes);
+        }
+    }
+    showNotes();
 }

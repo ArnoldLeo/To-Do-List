@@ -23,8 +23,8 @@ p{
 .container{
     max-width: 900px;
     margin: 10px auto;
-    padding:0 20px;
-    border: 2px solid gainsboro;
+    padding:10px 20px;
+    /* border: 2px solid green; */
 }
 
 header h1{
@@ -43,7 +43,7 @@ header h1{
 form{
     display:flex;
     flex-direction: column;
-    width: 30vw;
+    width: 50%;
     margin:10px auto;
 }
 
@@ -81,23 +81,47 @@ form button:hover{
 .note{
     background-color: white;
     font-size: 15px;
-    margin: 10px 0;
+    margin: 10px 0px;
     border: 1px solid black;
     padding: 10px;
-    display: flex;
-    column-gap: 10px;
-    flex-basis: 33.33%;
-    flex-wrap: wrap;
 }
 .notes{
     padding: 10px;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
-    margin: 10px 0;
+    margin: 10px 5px;
     border: 2px solid blue;
-    width:30%;
+    width:100%;
 }
 
+@media  (min-width:500px) {
+    .note{ 
+        /* flex-wrap: nowrap; */
+        width:100%;
+        flex-wrap:wrap;
+        display: flex;
+        column-gap: 10px;
+        flex-basis: 33.33%;
+    }
+    .notes{
+        margin-left: 20px;
+        width:40%;
+    }
+}
+@media  (min-width:900px) {
+    .note{ 
+        /* flex-wrap: nowrap; */
+        width:100%;
+        flex-wrap:wrap;
+        display: flex;
+        column-gap: 10px;
+        flex-basis: 33.33%;
+    }
+    .notes{
+        /* margin-left: 20px; */
+        width:28%;
+    }
+}
 .note-counter, .note-text{
     font-size: 15px;
 }
@@ -116,6 +140,7 @@ form button:hover{
     border-radius: 3px;
     color: white;
     cursor: pointer;
+    justify-content: center;
 }
 .edit-btn{
     background-color:green ;
