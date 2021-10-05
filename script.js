@@ -103,15 +103,8 @@ function editNote(index) {
 
 showNotes();
 function reset() {
-    if (confirm("All files Cleared!!") === true) {
+    if (confirm("All files will be Cleared!!") === true) {
         localStorage.clear();
-        let notes = localStorage.getItem("notes");
-        if (notes == null) {
-            notesObj = [];
-        }
-        else {
-            notesObj = JSON.parse(notes);
-        }
     }
     showNotes();
 }
